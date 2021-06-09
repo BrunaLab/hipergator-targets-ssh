@@ -7,9 +7,9 @@
 This is a minimal example of a [`targets`](https://docs.ropensci.org/targets/) workflow that can run on [HiperGator](https://www.rc.ufl.edu/services/hipergator/) HPC using the [`clustermq`](https://mschubert.github.io/clustermq/) backend for paralellization. This is intended to be run **locally** in RStudio. For an alternative workflow that is run *on Hipergator* via the commandline, see [this repo](https://github.com/BrunaLab/hipergator-targets).
 
 ## Setup
-0. All of this works best if you can SSH into Hipergator without a password.  Set this up with `ssh-keygen`.
-1. SSH into Hipergator.  Launch R and install the `clustermq` package.
-1. On Hipergator, edit your `~/.Rprofile` (e.g. with `nano ~/.Rprofile`) to include:
+0. All of this works best if you can SSH into HiperGator without a password.  Set this up with `ssh-keygen`.
+1. SSH into HiperGator.  Launch R and install the `clustermq` package.
+2. On HiperGator, edit your `~/.Rprofile` (e.g. with `nano ~/.Rprofile`) to include:
 
 ```r
 options(
@@ -17,15 +17,23 @@ options(
   cluster.template = "~/slurm_clustermq.tmpl"
 )
 ```
-2. Edit the `slurm_clustermq.tmpl` file to include your email address (if you want email notifications for every worker task) and then copy it to Hipergator with `scp slurm_clustermq.tmpl username@hpg.rc.ufl.edu:slurm_clustermq.tmpl`
+3. Edit the `slurm_clustermq.tmpl` file if needed (but don't touch the wildcards in double curly braces) and then copy it to HiperGator with `scp slurm_clustermq.tmpl username@hpg.rc.ufl.edu:slurm_clustermq.tmpl`
 
 ## Run `targets` workflow
 To run this example workflow, you can either run `targets::tar_make_clustermq()` in the console, or use the "Jobs" feature of RStudio to run the `start_job.R` script as a local job---this keeps the console from being tied up waiting for the jobs to run on the cluster.
 
-# Troubleshooting:
+## Note
+If you only want certain targets to run on Hipergator, you can control this with the `deploy` argument to `tar_options_set()` and `tar_target()`.  Targets with `deploy = "main"` will  run locally and targets with `deploy = "worker"` will run on Hipergator. Set the default behavior with `tar_options_set()` inside of `_targets.R` and then adjust individual targets as needed.  See `_targets.R` for an example and see the [`targets` manual](https://books.ropensci.org/targets/hpc.html#advanced) for more detail. Note that you will still have to wait for remote targets to finish running for the pipeline to finish, so if any targets take a very long time to run, [this alternative approach](https://github.com/BrunaLab/hipergator-targets) might be better.
+
+## Troubleshooting:
+
+Problems with `clustermq`:
 
 - https://mschubert.github.io/clustermq/articles/userguide.html#ssh
 
+Problems with `targets` (i.e. problem still exists with `tar_make()` instead of `tar_make_clustermq()`:
+
+- https://docs.ropensci.org/targets/index.html#help
 
 ## How it works:
 
@@ -36,5 +44,3 @@ In this example, a list of numeric vectors is stored as `many_vects`.
 Then, independently, means and standard deviations are calculated for each vector in the list.
 These two targets (the means and the sd's) should be able to run on separate workers in parallel if things are set up correctly.
 Parallelizing code *within* a target (e.g. a function that does parallel computation) will require more setup.
-
-See [documentation for the `targets` package](https://books.ropensci.org/targets/) for more information.
