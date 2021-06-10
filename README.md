@@ -8,7 +8,7 @@ This is a minimal example of a [`targets`](https://docs.ropensci.org/targets/) w
 
 ## Setup
 0. All of this works best if you can SSH into HiperGator without a password.  Set this up with `ssh-keygen`.
-1. SSH into HiperGator.  Launch R and install the `clustermq` package.
+1. SSH into HiperGator.  Launch R and install the `clustermq` package. 
 2. On HiperGator, edit your `~/.Rprofile` (e.g. with `nano ~/.Rprofile`) to include:
 
 ```r
@@ -22,7 +22,9 @@ options(
 ## Run `targets` workflow
 To run this example workflow, you can either run `targets::tar_make_clustermq()` in the console, or use the "Jobs" feature of RStudio to run the `start_job.R` script as a local job---this keeps the console from being tied up waiting for the jobs to run on the cluster.  You can watch the progress of the pipeline with `tar_watch()`.
 
-## Note
+## Notes
+You will also need to be sure that all the packages your project uses are installed on the cluster.
+
 If you only want certain targets to run on Hipergator, you can control this with the `deploy` argument to `tar_options_set()` and `tar_target()`.  Targets with `deploy = "main"` will  run locally and targets with `deploy = "worker"` will run on Hipergator. Set the default behavior with `tar_options_set()` inside of `_targets.R` and then adjust individual targets as needed.  See `_targets.R` for an example and see the [`targets` manual](https://books.ropensci.org/targets/hpc.html#advanced) for more detail. Note that you will still have to wait for remote targets to finish running for the pipeline to finish, so if any targets take a very long time to run, [this alternative approach](https://github.com/BrunaLab/hipergator-targets) might be better.
 
 ## Troubleshooting:
