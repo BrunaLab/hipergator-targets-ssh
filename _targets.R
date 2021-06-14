@@ -11,16 +11,14 @@ lapply(list.files("R", full.names = TRUE), source)
 
 ## Set options
 options(tidyverse.quiet = TRUE)
-tar_option_set(deployment = "worker") #default to running targets on Hipergator
+tar_option_set(deployment = "main") #default to running targets locally
 
 ## tar_plan supports drake-style targets and also tar_target()
 tar_plan(
-  # This first target will run locally because of deploy = "main"
-  tar_target(many_vects, make_vects(), deploy = "main"),
-  # The rest run on Hipergator
+  many_vects = make_vects(),
   means = map(many_vects, ~mean(.x)),
   sds = map(many_vects, ~sd(.x)),
-  # these targets should be able to run in parallel:
-  means_mean = mean(unlist(means)),
-  sd_means = mean(unlist(sds))
+  # these targets should be able to run in parallel on HiperGator:
+  tar_target(means_mean, ~mean(unlist(means)), deployment = "worker"),
+  tar_target(sd_means,  ~mean(unlist(sds)), deployment = "worker")
 )
