@@ -19,7 +19,10 @@ options(
 ```
 3. Edit the `slurm_clustermq.tmpl` file if needed (but don't touch the wildcards in double curly braces) and then copy it to HiperGator with `scp slurm_clustermq.tmpl username@hpg.rc.ufl.edu:slurm_clustermq.tmpl`
 
+[More detailed instructions on setting up `clustermq`](https://mschubert.github.io/clustermq/articles/userguide.html)
+
 ## Run `targets` workflow
+
 To run this example workflow, you can either run `targets::tar_make_clustermq()` in the console, or use the "Jobs" feature of RStudio to run the `start_job.R` script as a local job---this keeps the console from being tied up waiting for the jobs to run on the cluster.  You can watch the progress of the pipeline with `tar_watch()` or by running `tar_visnetwork()` or `tar_progress()` occasionally.
 
 ## Notes
