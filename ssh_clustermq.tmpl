@@ -1,0 +1,9 @@
+# This template just ensures that R version 4.0 is loaded on HiperGator. 
+# There is currently (as of 10-18-2021) a bug that prevents R 4.1+ from working on HiperGator with SLURM.
+ssh -o "ExitOnForwardFailure yes" -f \
+    -R {{ ctl_port }}:localhost:{{ local_port }} \
+    -R {{ job_port }}:localhost:{{ fwd_port }} \
+    {{ ssh_host }} \
+    "module load R/4.0 && R --no-save --no-restore -e \
+        'clustermq:::ssh_proxy(ctl={{ ctl_port }}, job={{ job_port }})' \
+        > {{ ssh_log | /dev/null }} 2>&1"
