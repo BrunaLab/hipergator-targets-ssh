@@ -9,7 +9,7 @@
 #SBATCH --error={{ log_file | logs/workers/pipeline%j_%a.err}}   # log file
 #SBATCH --mem-per-cpu={{ memory | 8GB }}     # memory
 #SBATCH --array=1-{{ n_jobs }}               # job array
-#SBATCH --cpus-per-task={{ num_cores | 1 }}
+#SBATCH --cpus-per-task={{ cores | 1 }}
 #SBATCH --time={{ time | 1440 }}
 
 source /etc/profile
@@ -17,4 +17,4 @@ source /etc/profile
 ulimit -v $(( 1024 * {{ memory | 8192 }} ))
 module load R/4.0              # currently R 4.1 causes an "invalid user" error  
 module load pandoc         # Uncomment if Rmarkdown is rendered.
-CMQ_AUTH={{ auth }} Rscript -e 'clustermq:::worker("{{ master }}")'
+CMQ_AUTH={{ auth }} R --no-save --no-restore -e 'clustermq:::worker("{{ master }}")'
