@@ -7,7 +7,7 @@
 This is a minimal example of a [`targets`](https://docs.ropensci.org/targets/) workflow that can run on [HiperGator](https://www.rc.ufl.edu/services/hipergator/) HPC using the [`clustermq`](https://mschubert.github.io/clustermq/) backend for paralellization. This is intended to be run **locally** in RStudio. For an alternative workflow that is run *on Hipergator* via the commandline, see [this repo](https://github.com/BrunaLab/hipergator-targets).
 
 ## Setup
-0. All of this works best if you can SSH into HiperGator without a password.  Set this up with `ssh-keygen`.
+0. All of this works best if you can SSH into HiperGator without a password.  Set this up with `ssh-keygen` and by creating a SSH config file locally (see details here: https://help.rc.ufl.edu/doc/Authentication_With_MFA)
 1. SSH into HiperGator.  Launch R and install the `clustermq` package. 
 2. On HiperGator, edit your `~/.Rprofile` (e.g. with `nano ~/.Rprofile`) to include:
 
