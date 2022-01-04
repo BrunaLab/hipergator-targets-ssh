@@ -151,10 +151,10 @@
     },
     "glue": {
       "Package": "glue",
-      "Version": "1.5.1",
+      "Version": "1.6.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "e01bc1fe0c20954ec97eac86640abc70"
+      "Hash": "b8bb7aaf248e45bac08ebed86f3a0aa4"
     },
     "highr": {
       "Package": "highr",
@@ -172,17 +172,17 @@
     },
     "igraph": {
       "Package": "igraph",
-      "Version": "1.2.9",
+      "Version": "1.2.10",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "66abc5ba63fe0543b3d7c5ec73b4230f"
+      "Hash": "755b0a569115bb54c91997136ece64a8"
     },
     "knitr": {
       "Package": "knitr",
-      "Version": "1.36",
+      "Version": "1.37",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "46344b93f8854714cdf476433a59ed10"
+      "Hash": "a4ec675eb332a33fe7b7fe26f70e1f98"
     },
     "lattice": {
       "Package": "lattice",
@@ -347,10 +347,10 @@
     },
     "xfun": {
       "Package": "xfun",
-      "Version": "0.28",
+      "Version": "0.29",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "f7f3a61ab62cd046d307577a8ae12999"
+      "Hash": "e2e5fb1a74fbb68b27d6efc5372635dc"
     },
     "yaml": {
       "Package": "yaml",
