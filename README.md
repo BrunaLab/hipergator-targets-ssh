@@ -14,7 +14,7 @@ This is a minimal example of a [`targets`](https://docs.ropensci.org/targets/) w
 ```r
 options(
   clustermq.scheduler = "slurm",
-  cluster.template = "~/slurm_clustermq.tmpl"
+  clustermq.template = "~/slurm_clustermq.tmpl"
 )
 ```
 3. Edit the `slurm_clustermq.tmpl` file if needed (but don't touch the wildcards in double curly braces) and then copy it to HiperGator with `scp slurm_clustermq.tmpl username@hpg.rc.ufl.edu:slurm_clustermq.tmpl`
