@@ -8,7 +8,8 @@
 options(
   clustermq.scheduler = "ssh",
   clustermq.template = "ssh_clustermq.tmpl", #custom SSH template to use R 4.0
-  clustermq.ssh.host = "-p 2222 ericscott@hpg.rc.ufl.edu", # use your user and host. 
+  clustermq.ssh.host = "-p 2222 ericscott@hpg.rc.ufl.edu", # use your user and host or set up in ~/.ssh/config.
+  clustermq.ssh.timeout = 30, #longer timeout helps with 2FA
   clustermq.ssh.log = "~/cmq_ssh.log" # log for easier debugging
 )
 
