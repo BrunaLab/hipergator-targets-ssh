@@ -53,10 +53,10 @@
     },
     "clustermq": {
       "Package": "clustermq",
-      "Version": "0.8.95.2",
+      "Version": "0.8.95.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "cfc7c04384e7340ff65b450d097da566"
+      "Hash": "a9cbe19a941c943dd57b0a602b500437"
     },
     "codetools": {
       "Package": "codetools",
