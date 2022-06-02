@@ -59,7 +59,7 @@ For an alternative workflow that is run *on Hipergator* via the command line, se
 ```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 cat(
   "```mermaid",
-  targets::tar_mermaid(targets_only = TRUE),
+  targets::tar_mermaid(targets_only = FALSE),
   "```",
   sep = "\n"
 )

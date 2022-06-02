@@ -71,8 +71,10 @@ graph LR
   subgraph Legend
     uptodate([Up to date]):::uptodate --- outdated([Outdated]):::outdated
     outdated([Outdated]):::outdated --- stem([Stem]):::none
+    stem([Stem]):::none --- function>Function]:::none
   end
   subgraph Graph
+    make_vects>make_vects]:::uptodate --> many_vects([many_vects]):::uptodate
     many_vects([many_vects]):::uptodate --> means([means]):::uptodate
     many_vects([many_vects]):::uptodate --> sds([sds]):::uptodate
     sds([sds]):::uptodate --> sd_means([sd_means]):::uptodate
@@ -84,7 +86,8 @@ graph LR
   classDef none stroke:#000000,color:#000000,fill:#94a4ac;
   linkStyle 0 stroke-width:0px;
   linkStyle 1 stroke-width:0px;
-  linkStyle 6 stroke-width:0px;
+  linkStyle 2 stroke-width:0px;
+  linkStyle 8 stroke-width:0px;
 ```
 
 ## Notes
