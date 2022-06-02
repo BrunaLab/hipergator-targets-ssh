@@ -28,5 +28,7 @@ tar_plan(
   sds = map(many_vects, ~sd(.x)),
   # these targets should be able to run in parallel on HiperGator:
   tar_target(means_mean, ~mean(unlist(means)), deployment = "worker"),
-  tar_target(sd_means,  ~mean(unlist(sds)), deployment = "worker")
+  tar_target(sd_means,  ~mean(unlist(sds)), deployment = "worker"),
+  
+  tar_render(readme, "./README.Rmd")
 )
