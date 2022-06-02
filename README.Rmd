@@ -30,7 +30,7 @@ For an alternative workflow that is run *on Hipergator* via the command line, se
 
 1.  Click the green "Use this template" button to make a copy into your own GitHub account or use the "Code" button to download a zip file of this repo.
 
-2.  This project uses `renv` to manage R package dependencies.
+2.  This project uses [`renv`](https://rstudio.github.io/renv/articles/renv.html) to manage R package dependencies.
     After opening the .Rproj file in RStudio, run `renv::restore()` to install all needed packages.
 
 3.  SSH into HiperGator.
@@ -48,7 +48,7 @@ For an alternative workflow that is run *on Hipergator* via the command line, se
 5.  Edit the `slurm_clustermq.tmpl` file if needed (but don't touch the wildcards in double curly braces) and then copy it to HiperGator with `scp slurm_clustermq.tmpl username@hpg.rc.ufl.edu:slurm_clustermq.tmpl`.
     [More detailed instructions on setting up `clustermq`](https://mschubert.github.io/clustermq/articles/userguide.html)
 
-    \*\* NOTE: \*\* While you're logged into HiperGator, you can also check that all the packages your project uses are also installed on the cluster.
+    **NOTE:** While you're logged into HiperGator, you can also check that all the packages your project uses are also installed on the cluster.
 
 6.  Run `targets` workflow:
 
@@ -73,7 +73,7 @@ Set the default behavior with `tar_options_set()` inside of `_targets.R` and the
 See `_targets.R` for an example and see the [`targets` manual](https://books.ropensci.org/targets/hpc.html#advanced) for more detail.
 Note that you will still have to wait for remote targets to finish running for the pipeline to finish, so if any targets take a very long time to run, [this alternative approach](https://github.com/BrunaLab/hipergator-targets) might be better.
 
-Currently (as of 10-18-2021) there is a bug with R version 4.1+ on HiperGator that affects this workflow.
+Currently (as of May 2022) there is a bug with R version 4.1+ on HiperGator that affects this workflow.
 To get around this, I've edited the `ssh_clustermq.tmpl` and `slurm_clustermq.tmpl` files to load R version 4.0.
 
 ## Troubleshooting:

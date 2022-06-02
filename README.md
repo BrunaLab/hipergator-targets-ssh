@@ -27,9 +27,10 @@ line, see [this repo](https://github.com/BrunaLab/hipergator-targets).
     own GitHub account or use the “Code” button to download a zip file
     of this repo.
 
-2.  This project uses `renv` to manage R package dependencies. After
-    opening the .Rproj file in RStudio, run `renv::restore()` to install
-    all needed packages.
+2.  This project uses
+    [`renv`](https://rstudio.github.io/renv/articles/renv.html) to
+    manage R package dependencies. After opening the .Rproj file in
+    RStudio, run `renv::restore()` to install all needed packages.
 
 3.  SSH into HiperGator. Launch R and install the `clustermq` package.
 
@@ -50,9 +51,9 @@ line, see [this repo](https://github.com/BrunaLab/hipergator-targets).
     [More detailed instructions on setting up
     `clustermq`](https://mschubert.github.io/clustermq/articles/userguide.html)
 
-    \*\* NOTE: \*\* While you’re logged into HiperGator, you can also
-    check that all the packages your project uses are also installed on
-    the cluster.
+    **NOTE:** While you’re logged into HiperGator, you can also check
+    that all the packages your project uses are also installed on the
+    cluster.
 
 6.  Run `targets` workflow:
 
@@ -101,7 +102,7 @@ long time to run, [this alternative
 approach](https://github.com/BrunaLab/hipergator-targets) might be
 better.
 
-Currently (as of 10-18-2021) there is a bug with R version 4.1+ on
+Currently (as of May 2022) there is a bug with R version 4.1+ on
 HiperGator that affects this workflow. To get around this, I’ve edited
 the `ssh_clustermq.tmpl` and `slurm_clustermq.tmpl` files to load R
 version 4.0.
