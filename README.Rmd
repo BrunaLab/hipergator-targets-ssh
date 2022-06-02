@@ -48,7 +48,8 @@ For an alternative workflow that is run *on Hipergator* via the command line, se
 5.  Edit the `slurm_clustermq.tmpl` file if needed (but don't touch the wildcards in double curly braces) and then copy it to HiperGator with `scp slurm_clustermq.tmpl username@hpg.rc.ufl.edu:slurm_clustermq.tmpl`.
     [More detailed instructions on setting up `clustermq`](https://mschubert.github.io/clustermq/articles/userguide.html)
 
-    **NOTE:** While you're logged into HiperGator, you can also check that all the packages your project uses are also installed on the cluster.
+    **NOTE:** While you're logged into HiperGator, you should also install any R packages your project uses.
+    Launch R and install them manually (sorry, I don't know an easy way to use the local `renv` lock file to automatically install packages on HiperGator).
 
 6.  Run `targets` workflow:
 

@@ -51,9 +51,10 @@ line, see [this repo](https://github.com/BrunaLab/hipergator-targets).
     [More detailed instructions on setting up
     `clustermq`](https://mschubert.github.io/clustermq/articles/userguide.html)
 
-    **NOTE:** While you’re logged into HiperGator, you can also check
-    that all the packages your project uses are also installed on the
-    cluster.
+    **NOTE:** While you’re logged into HiperGator, you should also
+    install any R packages your project uses. Launch R and install them
+    manually (sorry, I don’t know an easy way to use the local `renv`
+    lock file to automatically install packages on HiperGator).
 
 6.  Run `targets` workflow:
 
