@@ -24,5 +24,3 @@ _targets/
 # html
 *.html
 
-# renv
-renv/
