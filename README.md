@@ -11,7 +11,7 @@ This is a minimal example of a
 [HiperGator](https://www.rc.ufl.edu/services/hipergator/) HPC using the
 [`clustermq`](https://mschubert.github.io/clustermq/) back-end for
 paralellization. This is intended to be run **locally** in RStudio. For
-an alternative workflow that is run *on Hipergator* via the command
+an alternative workflow that is run *on HiperGator* via the command
 line, see [this repo](https://github.com/BrunaLab/hipergator-targets).
 
 ## Prerequisites:
@@ -60,11 +60,11 @@ line, see [this repo](https://github.com/BrunaLab/hipergator-targets).
 
     To run this example workflow, you can either run
     `targets::tar_make_clustermq()` in the console, or use the “Jobs”
-    feature of RStudio to run the `start_job.R` script as a local
-    job—this keeps the console from being tied up waiting for the jobs
-    to run on the cluster. You can watch the progress of the pipeline
-    with `tar_watch()` or by running `tar_visnetwork()` to see a graph
-    like this:
+    feature of RStudio to run the `run.R` script as a local job—this
+    keeps the console from being tied up waiting for the jobs to run on
+    the cluster. You can watch the progress of the pipeline with
+    `tar_watch()` or by running `tar_visnetwork()` to see a graph like
+    this:
 
 ``` mermaid
 graph LR
